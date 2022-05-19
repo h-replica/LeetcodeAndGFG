@@ -1,0 +1,8 @@
+concept greedy ka hai 
+
+ek farthest variable maintain karna hai 
+
+agar nums[0] = 3 hai to iska matlb hai ki hm farthest 3 tak to pahunch hi sakte hain aue saath saath 1 ,2 v pahunch sakte hain 
+
+to 1 ,2 kyuki pahunch sakte hain to waha se dekh lenge ki 1 ,2 se kya avi ke farthest jo ki 3 hai usse jaada door pahunch sakte kya , for case like agar 
+nums[1] = 4 hota to , naya farthest 5 ho jaata , to ab kisi v case me 5 tak to pahunch hi sakte hain .....................
