@@ -1,6 +1,6 @@
 ​Handling infinite supply :
 
-generally dimag me ye aata hai infinite supply handle karn ka ki , agar target = 10 hai aur , coin = 2 hai to hm ek loop chalaen 2 ko use karte hue :
+    generally dimag me ye aata hai infinite supply handle karn ka ki , agar target = 10 hai aur , coin = 2 hai to hm ek loop chalaen 2 ko use karte hue :
     1 + coins used to make 10-(2 * 1)
     2 + coins used to make 10 - (2 * 2)
     .
