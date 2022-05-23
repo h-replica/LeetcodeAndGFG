@@ -1,3 +1,5 @@
+import collections as col
+import math
 class Solution:
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
         
@@ -15,20 +17,21 @@ class Solution:
             onesandzeros.append([i.count("1") , i.count("0")])
         print(onesandzeros)
         ans = 0
-        @cache
-        def formsubsets( m , n , i , j , included , at) :
-            nonlocal ans
+        dp = col.defaultdict(int)
+        def formsubsets( m , n , i , j , at) :
+            if (i , j , at) in dp :
+                return dp[(i , j , at)]
             if i > n or j > m :
-                ans = max(ans , included-1)
-                return
+                return -math.inf
             
             if at == len(strs) :
-                ans = max(ans , included)
-                return 
+                return 0 
             
-            formsubsets( m , n , i , j , included , at+1)
-            formsubsets( m , n , i + onesandzeros[at][0] , j + onesandzeros[at][1] , included+1 , at+1)
-        formsubsets( m , n , 0 , 0 , 0 , 0)
-        return ans
+            dp[(i , j , at)] = max(formsubsets( m , n , i , j , at+1) , 1 + formsubsets( m , n , i + onesandzeros[at][0] , j + onesandzeros[at][1], at+1)) 
+            
+            return dp[(i , j , at)]
+            
+        return formsubsets( m , n , 0 , 0 , 0)
+        
             
             
