@@ -1,6 +1,17 @@
 import heapq as h
 class MedianFinder:
 
+    """
+    Median is the number in sorted array which divides the array in two equal halves ( array wise )
+    
+    So maintain two heaps , one for left half and another for another half 
+    So , if whole array is sorted iff max of left half is less or equal to min of right half 
+    
+    So we need to balance the Heaps when new data comes in the stream 
+    1) Max of left half >= Min of right half
+    2) Diff of lengths of both halves should not be greater 1 (to ensure both are actually "halves")
+    
+    """
     def __init__(self):
         self.rightminheap = []
         self.leftmaxheap = []
@@ -55,14 +66,9 @@ class MedianFinder:
             h._siftdown_max(self.leftmaxheap , 0 , self.l)
             self.l+=1
             self.balanceHeaps()
-        # print(num)
-        # print(self.leftmaxheap)
-        # print(self.rightminheap)
 
     def findMedian(self) -> float:
-        # print(self.leftmaxheap)
-        # print(self.rightminheap)
-        # return 1
+        
         if self.n < 2 :
             if self.l > 0 :
                 return self.leftmaxheap[0]
