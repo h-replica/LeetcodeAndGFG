@@ -43,11 +43,11 @@ class Solution:
             i-=1
         
         
-        # print(prev1 ,"|" ,  curr1 ,"|", next1 , "|",prev2 , "|",curr2 ,"|", next2 )
         
-        if prev1 : prev1.next = curr2
+        
+        if prev1 : prev1.next = curr2 #prev1 can be none
         if prev2 : 
-            if prev2 == curr1 :
+            if prev2 == curr1 :  #if we need to swap adjascent nodes
                 curr2.next = curr1
                 curr1.next = next2
             else:    
@@ -55,7 +55,7 @@ class Solution:
                 curr1.next = next2
                 curr2.next = next1
         
-        return curr2 if not prev1 else head
+        return curr2 if not prev1 else head  #when the head gets changed itself , curr1 = head , then curr2 will become new head 
         return head
         
             
