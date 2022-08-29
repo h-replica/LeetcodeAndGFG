@@ -46,14 +46,14 @@ class Solution:
         
         
         if prev1 : prev1.next = curr2 #prev1 can be none
-        if prev2 : 
-            if prev2 == curr1 :  #if we need to swap adjascent nodes
-                curr2.next = curr1
-                curr1.next = next2
-            else:    
-                prev2.next = curr1
-                curr1.next = next2
-                curr2.next = next1
+        
+        if prev2 == curr1 :  #if we need to swap adjascent nodes
+            curr2.next = curr1
+            curr1.next = next2
+        else:    
+            prev2.next = curr1
+            curr1.next = next2
+            curr2.next = next1
         
         return curr2 if not prev1 else head  #when the head gets changed itself , curr1 = head , then curr2 will become new head 
         return head
