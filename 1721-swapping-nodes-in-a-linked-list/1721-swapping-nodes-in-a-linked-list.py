@@ -47,7 +47,7 @@ class Solution:
         
         if prev1 : prev1.next = curr2 #prev1 can be none
         
-        if prev2 == curr1 :  #if we need to swap adjascent nodes
+        if prev2 == curr1 :  #if we need to swap adjascent nodes , prev2 will never be none for linked list havinf size greater than 1
             curr2.next = curr1
             curr1.next = next2
         else:    
